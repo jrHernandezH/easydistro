@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Registro de Distribuidor</title>
+    <link
+      rel="stylesheet"
+      href="styles/registro/registros.css"
+    />
+    <!-- Enlaza tu archivo CSS -->
+  </head>
+  <body>
+    <div class="container">
+      <form
+        class="form"
+        method="POST"
+        enctype="multipart/form-data"
+        id="registroForm"
+      >
+        <p class="title">Registro de distribuidores </p>
+        <p class="message"
+          >Registrate ahora y has conocer tu panificadora.
+        </p>
+        <div class="flex">
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              id="user"
+              name="user"
+            />
+            <span>Usuario</span>
+          </label>
+
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="password"
+              class="input"
+              name="password"
+              id="password"
+            />
+            <span>Contraseña</span>
+          </label>
+        </div>
+
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="text"
+            class="input"
+            id="nombre_distribuidor"
+            name="nombre_distribuidor"
+          />
+          <span>Nombre de la Panificadora</span>
+        </label>
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="email"
+            class="input"
+            id="correo_distribuidor"
+            name="correo_distribuidor"
+          />
+          <span>Correo</span>
+        </label>
+
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="text"
+            class="input"
+            id="direccion_distribuidor"
+            name="direccion_distribuidor"
+          />
+          <span>Direccion</span>
+        </label>
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="tel"
+            class="input"
+            name="telefono_distribuidor"
+          />
+          <span>Telefono</span>
+        </label>
+        <label>
+          <textarea
+            name="descripcion"
+            id="descripcion"
+            class="input"
+            required
+            style="resize: none"
+          ></textarea>
+          <span>Descripcion</span>
+        </label>
+        <label for="imagen" class="file-input-label">
+          <input
+            type="file"
+            id="imagen"
+            name="imagen"
+            accept="image/*"
+            class="file-input"
+          />
+          <span>Elegir una imagen</span>
+        </label>
+        <button class="submit">Submit</button>
+        <p class="signin"
+          >Already have an acount ?
+          <a href="/login">Signin</a>
+        </p>
+      </form>
+    </div>
+    <script src="js/store/set.js"></script>
+  </body>
+</html>
