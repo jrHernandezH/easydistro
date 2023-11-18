@@ -1,0 +1,11 @@
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .back-button i {
+    margin-right: 5px;
+  }
+  

@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title><%= tienda.nombre %></title>
+    <%- include('./components/head/head'); %>
+    <link rel="stylesheet" href="/styles/store/header.css">
+    <link rel="stylesheet" href="/styles/logout.css">
+    <link rel="stylesheet" href="/styles/dashProduct/productos.css">
   </head>
   <body>
-    <h1><%= tienda.nombre %></h1>
-    <p>Dirección: <%= tienda.direccion %></p>
-    <p>Teléfono: <%= tienda.telefono %></p>
+    <header>
+      <%- include('./components/backarrow'); %>
+      <h1 id="name_store"><%= datos %></h1>
+      <p id="description_store"></p>
+      <%- include('./components/logout'); %>  
+    </header>
+    <main>
+      <div class="product-list">
+        <h2>Lista de Productos</h2>
+        <div id="lista-productos" class="products-container">
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="cerrarModal()">&times;</span>
+              <p>Ingrese la cantidad deseada:</p>
+              <input type="number" id="cantidadInput" min="1" value="1" />
+              <button id="btn-comprar">Comprar</button> 
+            </div>
+          </div>
 
-    <h2>Productos Disponibles</h2>
+
+        </div>
+      </div>
+    </main>
+    <script src="/js/storeClient/tienda.js"></script>
   </body>
 </html>

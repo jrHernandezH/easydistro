@@ -1,3 +1,8 @@
+body{
+  background: url('/assets/img/backViews.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .container{
     width: 100%;
     display: grid;

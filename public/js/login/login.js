@@ -1,3 +1,13 @@
+const cliente = localStorage.getItem('cliente');
+const distribuidor = localStorage.getItem('distribuidor');
+
+if(cliente){
+    window.location.href='/store'
+}
+if(distribuidor){
+    window.location.href = '/dashDis'
+}
+
 document.getElementById('button').addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -28,20 +38,26 @@ document.getElementById('button').addEventListener('click', function (event) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-    })
-        .then(response => {
-            if (response.ok) {
-                console.log('Inicio de sesión exitoso');
-                if (userType == 'cliente') {
-                    window.location.href = '/store'
-                } else {
-                    alert('pronto dashboard')
-                }
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            alert('Credenciales no encontradas');
+        }
+    }).then(data => {
+        if (data) {
+            if (userType === 'cliente') {
+                localStorage.setItem('cliente', 'true');
+                localStorage.setItem('id_cliente', data.id_cliente);
+                window.location.href = '/store';
             } else {
-                alert('Credenciales no encontradas')
+                localStorage.setItem('distribuidor', 'true');
+                localStorage.setItem('id_distribuidor', data.id_distribuidor);
+                window.location.href = '/dashDis'
             }
-        })
-        .catch(error => {
-            console.error('Error en la solicitud fetch:', error);
-        });
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud fetch:', error);
+    });
 });

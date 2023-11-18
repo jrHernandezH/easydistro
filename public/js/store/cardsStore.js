@@ -1,6 +1,17 @@
 // Función para hacer una solicitud GET a la API
+const cliente = localStorage.getItem('cliente');
+const distribuidor = localStorage.getItem('distribuidor');
+if (cliente) {
+    
+}else{
+    if(distribuidor){
+        window.location.href= "/dashDis"
+    }else{
+        window.location.href="/login"
+    } 
+}
 function obtenerTiendas() {
-    fetch('http://192.168.101.6:3000/api/distribuidores')
+    fetch('http://localhost:3000/api/distribuidores')
         .then(response => response.json())
         .then(data => {
             const cardContainer = document.querySelector('.card-container');
@@ -11,7 +22,7 @@ function obtenerTiendas() {
 
                 const imagen = document.createElement('img');
                 imagen.alt = tienda.nombre_distribuidor;
-                imagen.src = `http://192.168.101.6:3000/img/${tienda.imagen}`;
+                imagen.src = `http://localhost:3000/img/${tienda.imagen}`;
 
                 const nombre = document.createElement('h2');
                 nombre.textContent = tienda.nombre_distribuidor;
@@ -51,13 +62,16 @@ function obtenerTiendas() {
 
 // Función para mostrar productos de la tienda
 function mostrarProductos(tienda) {
-    const datosDistribuidor = {
-        nombre: tienda.nombre_distribuidor,
-        direccion: tienda.direccion_distribuidor,
-        telefono: tienda.telefono_distribuidor
-    };
-    window.location.href = `/tienda?nombre=${datosDistribuidor.nombre}&direccion=${datosDistribuidor.direccion}&telefono=${datosDistribuidor.telefono}`;
+    // Cambia la forma en que se pasa la información de la tienda
+    window.location.href = `/tienda/${tienda.id_distribuidor}`;
 }
+
 
 // Llama a la función para obtener los datos de tiendas cuando se cargue la página
 document.addEventListener('DOMContentLoaded', obtenerTiendas);
+
+const logoutButton = document.getElementById('btn-logout');
+logoutButton.addEventListener('click', function() {
+    localStorage.removeItem('cliente');
+    window.location.href = '/';
+  });

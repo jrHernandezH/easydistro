@@ -7,7 +7,14 @@ document.getElementById('registroForm').addEventListener('submit', function (eve
     })
         .then(response => {
             if (response.ok) {
-                window.location.href = "/store";
+                return response.json();
+            }
+        }).then(data => {
+            if(data) {
+                localStorage.setItem('distribuidor', 'true');
+                console.log(data.id);
+                localStorage.setItem('id_distribuidor', data.id);
+                window.location.href = '/dashDis'
             }
         })
         .catch(error => {

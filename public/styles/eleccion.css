@@ -1,0 +1,15 @@
+.redirect-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .no-redirect {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  

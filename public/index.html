@@ -2,34 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <meta
-      property="og:title"
-      content="Título de tu sitio web"
-    />
-    <meta
-      property="og:description"
-      content="Descripción de tu sitio web"
-    />
-    <meta property="og:image" content="URL_de_la_imagen" />
-    <meta property="og:url" content="URL_de_tu_sitio_web" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-
-    <title>EASYDISTRO</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <meta
+    property="og:title"
+    content="EEEL"
+  />
+  <meta
+    property="og:description"
+    content="Sitio de convivencia de tiendas para eleccion del cliente"
+  />
+  <meta property="og:image" content="/assets/img/backHome.jpg" />
+  <meta property="og:url" content="http://192.168.101.6:3000" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <title>EEEL</title>
     <link
       rel="stylesheet"
       href="./styles/landyn/header.css"
     />
+    <link rel="stylesheet" href="./styles/eleccion.css">
   </head>
   <body>
     <header class="header">
-      <h1 class="title">EASYDISTRO</h1>
+      <h1 class="title">EEEL</h1>
       <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -37,7 +37,18 @@
       </nav>
       <div class="container-login">
         <a href="/login">Login</a>
-        <a href="/registro">SignUp</a>
+        <a href="#" id="signup-link">SignUp</a>
+        <div id="selection-form" style="display: none;">
+          <form>
+            <label>
+              <input type="radio" name="userType" value="cliente"> Cliente
+            </label>
+            <label>
+              <input type="radio" name="userType" value="distribuidor"> Distribuidor
+            </label>
+            <button type="button" onclick="redirectToRegistration()">Continuar</button>
+          </form>
+        </div>
       </div>
     </header>
     <main class="main" id="home">
@@ -55,9 +66,9 @@
 
     <div class="container-ab" id="about">
       <div class="container-left">
-        <h2>Acerca de la Aplicacion "Panorama</h2>
+        <h2>Acerca de la Aplicacion "EEEL"</h2>
         <p
-          ><strong>Panorama</strong> es una innovadora
+          ><strong>EEEL</strong> es una innovadora
           plataforma que reúne a diversas panaderías y
           tiendas de distribución de pan en un solo lugar,
           brindando a los amantes del pan la oportunidad de
@@ -67,7 +78,7 @@
         >
         <h3>Nuestra Misión</h3>
         <p
-          >En <strong>Panorama</strong>, nos dedicamos a
+          >En <strong>EEEL</strong>, nos dedicamos a
           ofrecer la mejor experiencia a nuestros usuarios y
           a apoyar a panaderías locales a expandir su
           presencia en línea. Creemos que cada bocado de pan
@@ -77,42 +88,12 @@
         >
       </div>
       <div class="container-right">
-        <h3>Características Destacadas</h3>
-        <ul>
-          <li
-            ><strong>Explora una Amplia Variedad:</strong>
-            Descubre una selección diversa de panes frescos,
-            desde baguettes crujientes hasta bollos suaves y
-            sabrosos.</li
-          >
-          <li
-            ><strong>Tiendas Locales de Confianza:</strong>
-            Trabajamos con panaderías locales de renombre
-            que se enorgullecen de sus productos de alta
-            calidad.</li
-          >
-          <li
-            ><strong>Entrega a Domicilio:</strong> Olvídate
-            de hacer filas. Te llevamos el pan fresco
-            directamente a tu puerta.</li
-          >
-          <li
-            ><strong>Pedidos Personalizados:</strong>
-            Personaliza tus pedidos según tus preferencias y
-            necesidades.</li
-          >
-          <li
-            ><strong>Comunidad de Amantes del Pan:</strong>
-            Únete a una comunidad de personas que comparten
-            tu amor por el pan y descubre nuevas delicias
-            panaderas.</li
-          >
-        </ul>
-      </div>
+        <img src="./assets/img/aboutbread.jpg" alt="about">
+      </div>  
     </div>
 
-    <h2 id="menu" style="margin-top: 120px">Productos</h2>
     <div class="menu">
+      <h2 id="menu" style="margin-top: 120px">Productos</h2>
       <div class="menu-item">
         <img
           src="assets/img/panCasero.jpg"
@@ -138,7 +119,7 @@
       <div class="footer-content">
         <div class="footer-logo">
           <img
-            src="./assets/img/404.png"
+            src="./assets/img/favicon.jpeg"
             alt="Logo de la empresa"
             loading="lazy"
           />
@@ -172,10 +153,40 @@
       </div>
       <div class="footer-bottom">
         <p
-          >&copy; 2023 EASYDISTRO. Todos los derechos
+          >&copy; 2023 EEEL. Todos los derechos
           reservados.</p
         >
       </div>
     </footer>
+    <script>
+      const cliente = localStorage.getItem('cliente');
+      const distribuidor = localStorage.getItem('distribuidor');
+
+if(cliente){
+    window.location.href='/store'
+}
+if(distribuidor){
+    window.location.href = '/dashDis'
+}
+      document.getElementById('signup-link').addEventListener('click', function() {
+  document.getElementById('selection-form').style.display = 'block';
+});
+      function redirectToRegistration() {
+        const selectedUserType = document.querySelector('input[name="userType"]:checked');
+        if (selectedUserType) {
+          const userType = selectedUserType.value;
+          if (userType === "cliente") {
+            window.location.href = "/registroC";
+          } else if (userType === "distribuidor") {
+            window.location.href = "/registroD";
+          }
+        }
+      }
+      
+      document.getElementById('signup-link').addEventListener('click', function() {
+        document.getElementById('selection-form').style.display = 'block';
+      });
+      </script>
+      
   </body>
 </html>

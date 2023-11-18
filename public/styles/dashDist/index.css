@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #C8A2C8;
+}
+header {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+header p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+#product-form{
+   width: 100%;
+}
+
+.product-form, .product-list {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-form h2, .product-list h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+.product-list{
+    height: 440px;
+    overflow-y: hidden;
+    overflow: scroll;
+}
+.product-list img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+input, textarea {
+    width: 93%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn{
+    background-color: #0056B3;
+}
+/* Dentro de tu archivo de estilos CSS (puedes agregar esto al final o crear un nuevo archivo) */
+#order-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ddd;
+}
+
+#order-list th,
+#order-list td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#order-list th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+#order-list td {
+    font-size: 14px;
+}
+
+#order-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#order-list tr:hover {
+    background-color: #e6f7ff; /* Cambia el color al pasar el ratón sobre la fila */
+}
+
+/* Estilos para los encabezados de sección */
+.order-list h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./components/head/head'); %>
+    <link
+      rel="stylesheet"
+      href="styles/registro/registros.css"
+    />
+    <link rel="stylesheet" href="styles/arrow.css">
+  </head>
+  <body>
+    <div class="container">
+        <%- include('./components/arrow.ejs', { backLink: '/' }) %>
+      <form
+        class="form"
+        method="POST"
+        enctype="multipart/form-data"
+        id="registroForm"
+      >
+        <p class="title">Registro de clientes </p>
+        <p class="message"
+          >Registrate ahora y conoce las mejores panificadoras.
+        </p>
+        <div class="flex">
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              id="user"
+              name="user"
+            />
+            <span>Usuario</span>
+          </label>
+
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="password"
+              class="input"
+              name="password"
+              id="password"
+            />
+            <span>Contraseña</span>
+          </label>
+        </div>
+
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="text"
+            class="input"
+            id="nombre_cliente"
+            name="nombre_cliente"
+          />
+          <span>Nombre</span>
+        </label>
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="email"
+            class="input"
+            id="correo_cliente"
+            name="correo_cliente"
+          />
+          <span>Correo</span>
+        </label>
+
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="text"
+            class="input"
+            id="direccion_cliente"
+            name="direccion_cliente"
+          />
+          <span>Direccion</span>
+        </label>
+        <label>
+          <input
+            required=""
+            placeholder=""
+            type="tel"
+            class="input"
+            id="telefono_cliente"
+            name="telefono_cliente"
+          />
+          <span>Telefono</span>
+        </label>
+        <button class="submit">Submit</button>
+        <p class="signin"
+          >Already have an acount ?
+          <a href="/login">Signin</a>
+        </p>
+      </form>
+    </div>
+    <script src="js/store/setC.js"></script>
+  </body>
+</html>

@@ -45,25 +45,37 @@ app.use('/store', (req, res) => {
     res.render('store');
 });
 //ruta para mostrara la tienda
-app.get('/tienda', (req, res) => {
-    const tienda = {
-        nombre: req.query.nombre,
-        direccion: req.query.direccion,
-        telefono: req.query.telefono,
-    };
+// Cambia la ruta para manejar el método POST
+app.get('/tienda/:data', (req, res) => {
+    const datos = req.params.data;
+    res.render('tienda',{datos});
 
-    // Obtener productos de la tienda (puedes modificar esto según tu lógica)
-
-    res.render('tienda', { tienda });
 });
+
+app.post('/tienda1', (req, res) => {
+    const tienda = {
+        nombre: req.body.nombre,
+        direccion: req.body.direccion,
+        telefono: req.body.telefono,
+        id_distribuidor: req.body.id_distribuidor,
+    };
+    res.send(tienda);
+});
+
+
 //ruta para registrar distribuidores
-app.use('/registro', (req, res) => {
-    res.render('registro');
+app.use('/registroD', (req, res) => {
+    res.render('registroD');
+})
+app.use('/registroC', (req,res)=>{
+    res.render('registroC');
 })
 app.use('/login', (req, res) => {
     res.render('login');
 })
-
+app.use('/dashDis', (req,res)=>{
+    res.render('dashDistrib');
+})
 //Este método manda un mensaje por si la página no es encontrada
 app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, '..', 'public', 'error404.html'));

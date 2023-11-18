@@ -5,7 +5,7 @@ import path, { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-//metodo par guardar imagenes 
+//metodo para guardar imagenes 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const uploadPath = path.join(__dirname, '..', 'img');
@@ -51,7 +51,7 @@ export const getDistribuidor = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM distribuidores WHERE id_distribuidor = ?', [req.params.id]);
         if (rows.length <= 0) {
-            return res.status(404).json({ message: 'Dsitribuidor no encontrado' });
+            return res.status(404).json({ message: 'Distribuidor no encontrado' });
         }
         res.send(rows[0]);
     } catch (error) {

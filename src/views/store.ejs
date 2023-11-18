@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <%- include('./components/head/head'); %>
+    <link rel="stylesheet" href="/styles/store/cardStore.css">
+    <link rel="stylesheet" href="/styles/store/header.css">
+    <link rel="stylesheet" href="/styles/logout.css">
   </head>
   <body>
     <header>
@@ -10,10 +13,11 @@
         >Descubre una variedad de tiendas en un solo
         lugar</p
       >
+      <%- include('./components/logout'); %>
     </header>
     <div class="card-container">
       <!-- Los cards se generarán dinámicamente aquí mediante JavaScript -->
     </div>
-    <script src="js/store/cardsStore.js"></script>
+    <script src="/js/store/cardsStore.js"></script>
   </body>
 </html>

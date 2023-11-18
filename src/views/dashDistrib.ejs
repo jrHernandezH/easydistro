@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head/head'); %>
+    <link rel="stylesheet" href="styles/logout.css">
+    <link rel="stylesheet" href="styles/dashDist/index.css">
+
+</head>
+<body>
+    <header id="header">
+        <h1>Gestión de Productos</h1>
+        <%- include('./components/logout'); %>
+    </header>
+    <main>
+        <div class="product-form">
+            <h2>Agregar Producto</h2>
+            <form id="product-form" enctype="multipart/form-data" method="POST">
+                <label for="product-name">Nombre del Producto</label>
+                <input type="text" id="product-name" required>
+            
+                <label for="product-description">Descripción</label>
+                <textarea id="product-description" required></textarea>
+            
+                <label for="product-price">Precio</label>
+                <input type="number" id="product-price" step="0.01" required>
+            
+                <label for="product-store">Cantidad</label>
+                <input type="number" id="product-store" required>
+                
+                <label for="product-image">Imagen del Producto</label>
+                <input type="file" id="product-image" name="imagen_producto" accept="image/*" required>
+            
+                <button type="submit" class="btn" id="Agregar">Agregar Producto</button>
+                <button type="submit" class="btn" style="display: none;" id="Actualizar">Actualizar</button>
+            </form>
+            
+        </div>
+        <div class="product-list">
+            <h2>Lista de Productos</h2>
+            <ul id="product-list">
+                <!-- Los productos se cargarán dinámicamente aquí mediante JavaScript -->
+            </ul>
+        </div>
+    </main>
+    <!-- Dentro de la etiqueta <main> después de la sección de productos -->
+        <table id="order-list" class="order-list">
+            <tr>
+                <th>ID del Pedido</th>
+                <th>Fecha y Hora</th>
+                <th>Estado</th>
+                <th>Total a Pagar</th>
+                <th>Cliente</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+            </tr>
+            <!-- Las filas de pedidos se cargarán dinámicamente aquí mediante JavaScript -->
+        </table>
+        
+
+    <script src="/js/dashDist/index.js"></script>
+    <script src="/js/dashDist/setP.js"></script>
+</body>
+</html>
